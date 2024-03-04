@@ -25,13 +25,16 @@ public class HawaiianPizza extends AbstractPizza{
 
 	@Override
 	protected double addToppingsToPrice(double priceWithoutToppings) {
-		// TODO Auto-generated method stub
-		return 0;
+		this.totalPrice = priceWithoutToppings;
+		for(Toppings topping: toppingList) {
+			this.totalPrice += topping.getPrice();
+		}
+		return this.totalPrice;
 	}
 
 	@Override
 	public double updatePizzaPrice() {
-		// TODO Auto-generated method stub
+		this.totalPrice = this.addToppingsToPrice(priceWithoutToppings);
 		return 0;
 	}
 
