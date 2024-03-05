@@ -8,11 +8,11 @@ public abstract class AbstractPizza {
 	protected double totalPrice;
 	protected int pizzaOrderID;
 	protected static int orderIDCounter;
-	protected CookingStyleType cookingStrategy;
+	protected ICookingStrategy cookingStrategy;
 	protected double cookingPrice;
 	
 	public ArrayList<Toppings> getToppingList() {
-		return toppingList;
+		return new ArrayList<Toppings> (toppingList);
 	}
 	public void setToppingList(ArrayList<Toppings> toppingList) {
 		this.toppingList = toppingList;
@@ -41,11 +41,11 @@ public abstract class AbstractPizza {
 	public static void setOrderIDCounter(int orderIDCounter) {
 		AbstractPizza.orderIDCounter = orderIDCounter;
 	}
-	public CookingStyleType getCookingStrategy() {
-		return cookingStrategy;
+	public ICookingStrategy getCookingStrategy() {
+		return new ICookingStrategy (cookingStrategy);
 	}
 	public void setCookingStrategy(CookingStyleType cookingStrategy) {
-		this.cookingStrategy = cookingStrategy;
+		this.cookingStrategy = ICookingStrategy (cookingStrategy);
 	}
 	public double getCookingPrice() {
 		return cookingPrice;
