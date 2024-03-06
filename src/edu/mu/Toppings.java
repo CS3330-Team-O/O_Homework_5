@@ -25,7 +25,11 @@ public enum Toppings {
 	}
 	
 	public void setPrice(double newPrice) {
-		this.price = newPrice;
+		try {
+			this.price = newPrice;
+		}catch(Exception e) {
+			System.out.println("Error in setPrice: " + e);
+		}
 	}
 
 }

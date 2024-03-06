@@ -15,43 +15,71 @@ public abstract class AbstractPizza {
 		return new ArrayList<Toppings> (toppingList);
 	}
 	public void setToppingList(ArrayList<Toppings> toppingList) {
-		this.toppingList = toppingList;
+		try {
+			this.toppingList = toppingList;
+		}catch (Exception e) {
+			System.out.println("Error in setToppingList: " + e);
+		}
 	}
 	public double getPriceWithoutToppings() {
 		return priceWithoutToppings;
 	}
 	public void setPriceWithoutToppings(double priceWithoutToppings) {
-		this.priceWithoutToppings = priceWithoutToppings;
+		try {
+			this.priceWithoutToppings = priceWithoutToppings;
+		} catch (Exception e) {
+			System.out.println("Error in setPriceWithoutToppings: " + e);
+		}
 	}
 	public double getTotalPrice() {
 		return totalPrice;
 	}
 	public void setTotalPrice(double totalPrice) {
-		this.totalPrice = totalPrice;
+		try {
+			this.totalPrice = totalPrice;
+		} catch (Exception e) {
+			System.out.println("Error in setTotalPrice: " + e);
+		}
 	}
 	public int getPizzaOrderID() {
 		return pizzaOrderID;
 	}
 	public void setPizzaOrderID(int pizzaOrderID) {
-		this.pizzaOrderID = pizzaOrderID;
+		try {
+			this.pizzaOrderID = pizzaOrderID;
+		} catch (Exception e) {
+			System.out.println("Error in setPizzaOrderID: " + e);
+		}
 	}
 	public static int getOrderIDCounter() {
 		return orderIDCounter;
 	}
 	public static void setOrderIDCounter(int orderIDCounter) {
-		AbstractPizza.orderIDCounter = orderIDCounter;
+		try {
+			AbstractPizza.orderIDCounter = orderIDCounter;
+		}catch(Exception e) {
+			System.out.println("Error in setOrderIDCounter: " + e);
+		}
 	}
 	public ICookingStrategy getCookingStrategy() {
 		return new ICookingStrategy (cookingStrategy);
 	}
 	public void setCookingStrategy(CookingStyleType cookingStrategy) {
-		this.cookingStrategy = ICookingStrategy (cookingStrategy);
+		try {
+			this.cookingStrategy = cookingStrategy;
+		}catch(Exception e) {
+			System.out.println("Error in setCookingStrategy: " + e);
+		}
 	}
 	public double getCookingPrice() {
 		return cookingPrice;
 	}
 	public void setCookingPrice(double cookingPrice) {
-		this.cookingPrice = cookingPrice;
+		try {
+			this.cookingPrice = cookingPrice;
+		}catch (Exception e) {
+			System.out.println("Error in setCookingPrice: " + e);
+		}
 	}
 	
 	public static CookingStyleType convertStringToCookingStyleType(String cookingStyle) {
