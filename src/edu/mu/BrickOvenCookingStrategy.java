@@ -1,11 +1,20 @@
 package edu.mu;
 
 public class BrickOvenCookingStrategy implements ICookingStrategy {
+	private final double additionalPrice = 10.0;
 
 	@Override
 	public boolean cook(AbstractPizza pizza) {
-		// TODO Auto-generated method stub
-		return false;
+		if(pizza.getCookingStrategy() != null){
+			return false;
+		}
+		else {
+			pizza.setCookingStrategy(BrickOvenCookingStrategy);
+			double price = pizza.getTotalPrice();
+			pizza.setTotalPrice(price+additionalPrice);
+			return true;
+		}
+
 	}
 
 }
