@@ -1,6 +1,6 @@
 package edu.mu;
 
-public class HawaiianPizza extends AbstractPizza{
+public class HawaiianPizza extends AbstractPizza {
 	
 	HawaiianPizza(){
 		super.toppingList.add(Toppings.CANADIAN_BACON);

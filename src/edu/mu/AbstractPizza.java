@@ -3,7 +3,7 @@ package edu.mu;
 import java.util.ArrayList;
 
 public abstract class AbstractPizza {
-	protected ArrayList<Toppings> toppingList;
+	protected ArrayList<Toppings> toppingList = new ArrayList<Toppings>();
 	protected double priceWithoutToppings;
 	protected double totalPrice;
 	protected int pizzaOrderID;
@@ -62,9 +62,9 @@ public abstract class AbstractPizza {
 		}
 	}
 	public ICookingStrategy getCookingStrategy() {
-		return new ICookingStrategy (cookingStrategy);
+		return cookingStrategy;
 	}
-	public void setCookingStrategy(CookingStyleType cookingStrategy) {
+	public void setCookingStrategy(ICookingStrategy cookingStrategy) {
 		try {
 			this.cookingStrategy = cookingStrategy;
 		}catch(Exception e) {
