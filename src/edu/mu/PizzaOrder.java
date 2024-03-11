@@ -68,5 +68,41 @@ public class PizzaOrder {
 		}
 		return true;
 	}
+	
+	public boolean isThereAnyUncookedPizza() {
+		for (AbstractPizza pizza : pizzaOrderList) {
+			if (pizza.getCookingStrategy() == null) {
+				return true;
+			}
+		}
+		return false;
+	}
+	
+	public double checkout() throws Exception {
+		try {
+			int total = 0;
+            if(isThereAnyUncookedPizza() == false) {
+            	for (AbstractPizza pizza : pizzaOrderList) {
+            		total += pizza.totalPrice;
+            	}
+            	return total;
+            }
+        //else if there are any uncooked pizzas throw exception
+        //else throw new ?
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+		return 0;
+	}
+	
+	public boolean selectCookingStrategyByPizzaOrderID(int OrderID, CookingStyleType cookingStrategyType) {
+		for (AbstractPizza pizza : pizzaOrderList) {
+			if (pizza.getPizzaOrderID() == OrderID) {
+				pizza.setCookingStrategy(cookingStrategyType);
+				//cook?
+				return true;
+			}
+		return false;
+	}
 
 }
