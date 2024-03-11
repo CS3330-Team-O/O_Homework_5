@@ -1,7 +1,10 @@
 package edu.mu;
 
+import java.util.ArrayList;
+
 public class VegetarianPizza extends AbstractPizza{
 	VegetarianPizza(){
+		super.toppingList = new ArrayList<Toppings>();
 		super.toppingList.add(Toppings.TOMATO);
 		super.toppingList.add(Toppings.CHEESE);
 		super.toppingList.add(Toppings.BELL_PEPPER);

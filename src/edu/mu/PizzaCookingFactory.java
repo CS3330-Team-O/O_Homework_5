@@ -4,7 +4,6 @@ public class PizzaCookingFactory {
 	private static int orderIDCounter = 1;
 	
 	public AbstractPizza createPizza(PizzaType pizzaType) {
-		//AbstractPizza = null;
 		
 		switch(pizzaType) {
 		case HAWAIIAN:

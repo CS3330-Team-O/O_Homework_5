@@ -1,7 +1,10 @@
 package edu.mu;
 
+import java.util.ArrayList;
+
 public class MargheritaPizza extends AbstractPizza{
 	MargheritaPizza(){
+		super.toppingList = new ArrayList<Toppings>();
 		super.toppingList.add(Toppings.TOMATO);
 		super.toppingList.add(Toppings.CHEESE);
 		super.priceWithoutToppings = 2.50;

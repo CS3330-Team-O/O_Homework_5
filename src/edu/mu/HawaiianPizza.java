@@ -1,13 +1,21 @@
 package edu.mu;
 
+import java.util.ArrayList;
+
 public class HawaiianPizza extends AbstractPizza{
 	
+	
+	
+	
 	HawaiianPizza(){
+		super.toppingList = new ArrayList<Toppings>();
 		super.toppingList.add(Toppings.CANADIAN_BACON);
 		super.toppingList.add(Toppings.CHEESE);
 		super.toppingList.add(Toppings.PINEAPPLE);
 		super.priceWithoutToppings = 3.00;
 	}
+	
+	
 	
 	public void copyPizza(HawaiianPizza pizza1) {
 		this.toppingList = pizza1.toppingList;
