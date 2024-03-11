@@ -8,7 +8,7 @@ public abstract class AbstractPizza {
 	protected double totalPrice;
 	protected int pizzaOrderID;
 	protected static int orderIDCounter;
-	protected ICookingStrategy cookingStrategy;
+	protected CookingStyleType cookingStrategy;
 	protected double cookingPrice;
 	
 	public ArrayList<Toppings> getToppingList() {
@@ -61,8 +61,8 @@ public abstract class AbstractPizza {
 			System.out.println("Error in setOrderIDCounter: " + e);
 		}
 	}
-	public ICookingStrategy getCookingStrategy() {
-		return new ICookingStrategy (cookingStrategy);
+	public CookingStyleType getCookingStrategy() {
+		return cookingStrategy;
 	}
 	public void setCookingStrategy(CookingStyleType cookingStrategy) {
 		try {
