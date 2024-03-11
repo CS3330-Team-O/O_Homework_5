@@ -9,7 +9,7 @@ public class BrickOvenCookingStrategy implements ICookingStrategy {
 			return false;
 		}
 		else {
-			pizza.setCookingStrategy(BrickOvenCookingStrategy);
+			pizza.setCookingStrategy(CookingStyleType.BRICK_OVEN);
 			double price = pizza.getTotalPrice();
 			pizza.setTotalPrice(price+additionalPrice);
 			return true;
