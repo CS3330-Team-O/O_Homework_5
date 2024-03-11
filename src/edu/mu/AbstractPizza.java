@@ -8,7 +8,7 @@ public abstract class AbstractPizza {
 	protected double totalPrice;
 	protected int pizzaOrderID;
 	protected static int orderIDCounter;
-	protected CookingStyleType cookingStrategy;
+	protected CookingStyleType cookingStrategy = null;
 	protected double cookingPrice;
 	
 	public ArrayList<Toppings> getToppingList() {

@@ -69,6 +69,8 @@ public class PizzaOrder {
 		return true;
 	}
 	
+	//Method checks the pizzaOrderList for any uncooked pizza's
+	//if there are any uncooked pizza's then true is returned and otherwise false is returned
 	public boolean isThereAnyUncookedPizza() {
 		for (AbstractPizza pizza : pizzaOrderList) {
 			if (pizza.getCookingStrategy() == null) {
@@ -78,30 +80,44 @@ public class PizzaOrder {
 		return false;
 	}
 	
+	//Method checkout calculates the total price in order list if there are no uncooked pizza's
+	//otherwise, an exception is thrown states that there are uncooked pizza's
 	public double checkout() throws Exception {
-		try {
-			int total = 0;
-            if(isThereAnyUncookedPizza() == false) {
-            	for (AbstractPizza pizza : pizzaOrderList) {
-            		total += pizza.totalPrice;
+		int total = 0;
+        if(isThereAnyUncookedPizza() == false) {
+        	for (AbstractPizza pizza : pizzaOrderList) {
+            	total += pizza.totalPrice;
             	}
-            	return total;
-            }
-        //else if there are any uncooked pizzas throw exception
-        //else throw new ?
-        } catch (Exception e) {
-            e.printStackTrace();
+        return total;
         }
-		return 0;
+        else {
+        	throw new Exception("Uncooked Pizzas");
+        }
 	}
 	
+	//Method takes an integer OrderID and a CookingStyleType for a pizza the method finds the pizza with that order id
+	//once the correct pizza is found, the method will setCookingStrategy and use the cookingStrategyType to invoke the correct cook() method
+	//Once the cooking is done, true is returned. else if the pizza order ID is not found then false is returned.s
 	public boolean selectCookingStrategyByPizzaOrderID(int OrderID, CookingStyleType cookingStrategyType) {
 		for (AbstractPizza pizza : pizzaOrderList) {
 			if (pizza.getPizzaOrderID() == OrderID) {
 				pizza.setCookingStrategy(cookingStrategyType);
-				//cook?
+				switch(cookingStrategyType) {
+				  case MICROWAVE:
+				    MicrowaveCookingStrategy microwave = new MicrowaveCookingStrategy();
+				    microwave.cook(pizza);
+				    break;
+				  case CONVENTIONAL_OVEN:
+				    ConventionalOvenCookingStrategy conventionalOven = new ConventionalOvenCookingStrategy();
+				    conventionalOven.cook(pizza);
+				    break;
+				  default:
+				    BrickOvenCookingStrategy brickOven = new BrickOvenCookingStrategy();
+				    brickOven.cook(pizza);
+				}
 				return true;
 			}
+		}
 		return false;
 	}
 
