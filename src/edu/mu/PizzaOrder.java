@@ -3,11 +3,12 @@ package edu.mu;
 import java.util.ArrayList;
 
 public class PizzaOrder {
-
+	//field values for PizzaOrder
 	private ArrayList<AbstractPizza> pizzaOrderList;
 	private PizzaCookingFactory pizzaFactory;
 	private ICookingStrategy cookingStrategy;
 
+	//default constructor for PizzaOrder
 	public PizzaOrder() {
 		this.pizzaFactory = new PizzaCookingFactory();
 		this.pizzaOrderList = new ArrayList<AbstractPizza>();
@@ -49,6 +50,8 @@ public class PizzaOrder {
 		}
 	}
 
+	//this method traverses through the pizzaOrderList to find the pizza with the right order id
+	//then it will print out the all of the toppings of the specific pizza 
 	public void printListOfToppingsByPizzaOrderId(int orderId) {
 		for (AbstractPizza pizza : this.getPizzaOrderList()) {
 			if (pizza.getPizzaOrderID() == orderId) {
@@ -60,12 +63,17 @@ public class PizzaOrder {
 		}
 	}
 
+
+	//This method traverse through the pizzaOrderList and prints out each pizza information
+	public void printPizzaOrderCart(int orderId) {
+		for (AbstractPizza pizza : pizzaOrderList) {
 	public void printPizzaOrderCart(int orderID) {
 		for (AbstractPizza pizza : this.getPizzaOrderList()) {
 			System.out.println(pizza.toString());
 		}
 	}
 
+	//this method traverses through the pizzaOrderList and finds the pizza with he given orderid
 	public AbstractPizza getPizzaByOrderID(int orderID) {
 		for (AbstractPizza pizza : this.getPizzaOrderList()) {
 			if (pizza.getPizzaOrderID() == orderID) {
@@ -75,12 +83,16 @@ public class PizzaOrder {
 		return null;
 	}
 
+	//this method creates a new pizza using the pizzaFactory
+	//then adds the pizza to the pizzaOrderList
 	public boolean addPizzaToCart(PizzaType pizzaType) {
 		AbstractPizza pizza = this.getPizzaFactory().createPizza(pizzaType);
 		this.getPizzaOrderList().add(pizza);
 		return true;
 	}
 
+	//Method goes through the pizzaOrderList to find the pizza by order id
+	//then the method adds the topping to the pizza with the order id passed in as a parameter
 	public boolean addNewToppingToPizza(int orderID, Toppings topping) {
 		for (AbstractPizza pizza : this.getPizzaOrderList()) {
 			if (pizza.getPizzaOrderID() == orderID) {
@@ -93,6 +105,9 @@ public class PizzaOrder {
 		return true;
 	}
 
+	
+	//Method goes through the pizzaOrderList to find the pizza by order id
+	//then the method removes the topping from the pizza with the order id passed in as a parameter
 	public boolean removeToppingFromPizza(int orderID, Toppings topping) {
 		for (AbstractPizza pizza : this.getPizzaOrderList()) {
 			if (pizza.getPizzaOrderID() == orderID) {
