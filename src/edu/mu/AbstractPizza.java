@@ -11,8 +11,10 @@ public abstract class AbstractPizza {
 	protected static int orderIDCounter;
 	protected CookingStyleType cookingStrategy = null;
 	protected double cookingPrice;
+
 	
 	//getter for topping list
+
 	public ArrayList<Toppings> getToppingList() {
 		return new ArrayList<Toppings> (toppingList);
 	}
@@ -108,9 +110,7 @@ public abstract class AbstractPizza {
 			System.out.println("Error in setCookingPrice: " + e);
 		}
 	}
-	
-	
-	//toString constructor that will print the pizza information
+
 	public static CookingStyleType convertStringToCookingStyleType(String cookingStyle) {
 		switch(cookingStyle) {
 			case "MICROWAVE":
@@ -123,8 +123,7 @@ public abstract class AbstractPizza {
 				return CookingStyleType.CONVENTIONAL_OVEN;
 		}
 	}
-	
-	//abstract methods that will addToppingsToPrice and updatePizzaPrice
+
 	protected abstract double addToppingsToPrice(double priceWithoutToppings);
 	public abstract double updatePizzaPrice();
 	
