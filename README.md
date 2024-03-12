@@ -96,4 +96,26 @@ public double checkOut() throws Exception
 <br/>
 public boolean sselectCookingStrategyByPizzaOrderID(int orderID, CookingStyleType cookingStrategyType)
 
+<h3>Toppings Enum (Ashley)</h3>
+TOMATO(1.50)
+<br/>
+CHEESE(2.00)
+<br/>
+PINEAPPLE(2.50)
+<br/>
+BLACK_OLIVE(1.25)
+<br/>
+ITALIAN_SAUSAGE(3.50)
+<br/>
+PEPPERONI(3.00)
+<br/>
+BELL_PEPPER(1.00)
+<br/>
+MUSHROOM(1.50)
+<br/>
+CANADIAN_BACON(4.00)
+<br/>
+
+
+
 
