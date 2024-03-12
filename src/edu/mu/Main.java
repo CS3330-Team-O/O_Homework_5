@@ -25,7 +25,6 @@ public class Main {
 		} catch (Exception e) {
 			System.out.println("You have uncooked pizzas! Cannot checkout");
 		}
-		
 		System.out.println("----------Order #2----------");
 		//Checkout with an uncooked pizza
 		order.addPizzaToCart(PizzaType.VEGETARIAN);
@@ -60,7 +59,5 @@ public class Main {
 		} catch (Exception e) {
 			System.out.println("You have uncooked pizzas! Cannot checkout");
 		}
-
 	}
-
 }

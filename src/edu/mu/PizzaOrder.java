@@ -87,6 +87,7 @@ public class PizzaOrder {
 				ArrayList<Toppings> toppings = pizza.getToppingList();
 				toppings.add(topping);
 				pizza.setToppingList(toppings);
+				pizza.updatePizzaPrice();
 				break;
 			}
 		}
@@ -99,8 +100,9 @@ public class PizzaOrder {
 				ArrayList<Toppings> toppings = pizza.getToppingList();
 				toppings.remove(topping);
 				pizza.setToppingList(toppings);
+				pizza.updatePizzaPrice();
+				break;
 			}
-			break;
 		}
 		return true;
 	}
