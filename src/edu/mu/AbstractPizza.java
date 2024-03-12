@@ -3,7 +3,7 @@ package edu.mu;
 import java.util.ArrayList;
 
 public abstract class AbstractPizza {
-	protected ArrayList<Toppings> toppingList = new ArrayList<Toppings>();
+	protected ArrayList<Toppings> toppingList;
 	protected double priceWithoutToppings;
 	protected double totalPrice;
 	protected int pizzaOrderID;
@@ -12,7 +12,7 @@ public abstract class AbstractPizza {
 	protected double cookingPrice;
 	
 	public ArrayList<Toppings> getToppingList() {
-		return new ArrayList<Toppings> (toppingList);
+		return toppingList;
 	}
 	public void setToppingList(ArrayList<Toppings> toppingList) {
 		try {
