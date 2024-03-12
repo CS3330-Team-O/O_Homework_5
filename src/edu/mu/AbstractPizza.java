@@ -8,7 +8,7 @@ public abstract class AbstractPizza {
 	protected double totalPrice;
 	protected int pizzaOrderID;
 	protected static int orderIDCounter;
-	protected ICookingStrategy cookingStrategy;
+	protected CookingStyleType cookingStrategy = null;
 	protected double cookingPrice;
 	
 	public ArrayList<Toppings> getToppingList() {
@@ -27,6 +27,7 @@ public abstract class AbstractPizza {
 	public void setPriceWithoutToppings(double priceWithoutToppings) {
 		try {
 			this.priceWithoutToppings = priceWithoutToppings;
+			this.totalPrice += priceWithoutToppings;
 		} catch (Exception e) {
 			System.out.println("Error in setPriceWithoutToppings: " + e);
 		}
@@ -61,7 +62,7 @@ public abstract class AbstractPizza {
 			System.out.println("Error in setOrderIDCounter: " + e);
 		}
 	}
-	public ICookingStrategy getCookingStrategy() {
+	public CookingStyleType getCookingStrategy() {
 		return cookingStrategy;
 	}
 	public void setCookingStrategy(ICookingStrategy cookingStrategy) {
@@ -77,7 +78,8 @@ public abstract class AbstractPizza {
 	public void setCookingPrice(double cookingPrice) {
 		try {
 			this.cookingPrice = cookingPrice;
-		}catch (Exception e) {
+			this.totalPrice += cookingPrice;
+		} catch (Exception e) {
 			System.out.println("Error in setCookingPrice: " + e);
 		}
 	}

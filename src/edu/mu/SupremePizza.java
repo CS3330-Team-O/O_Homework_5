@@ -1,15 +1,19 @@
 package edu.mu;
 
-public class SupremePizza extends AbstractPizza{
+import java.util.ArrayList;
+
+public class SupremePizza extends AbstractPizza {
 	SupremePizza(){
-		super.toppingList.add(Toppings.TOMATO);
-		super.toppingList.add(Toppings.CHEESE);
-		super.toppingList.add(Toppings.BELL_PEPPER);
-		super.toppingList.add(Toppings.ITALIAN_SAUSAGE);
-		super.toppingList.add(Toppings.PEPPERONI);
-		super.toppingList.add(Toppings.BLACK_OLIVE);
-		super.toppingList.add(Toppings.MUSHROOM);
-		super.priceWithoutToppings =3.50;
+		ArrayList<Toppings> toppingList = new ArrayList<Toppings>();
+		toppingList.add(Toppings.TOMATO);
+		toppingList.add(Toppings.CHEESE);
+		toppingList.add(Toppings.BELL_PEPPER);
+		toppingList.add(Toppings.ITALIAN_SAUSAGE);
+		toppingList.add(Toppings.PEPPERONI);
+		toppingList.add(Toppings.BLACK_OLIVE);
+		toppingList.add(Toppings.MUSHROOM);
+		super.setToppingList(toppingList);
+		super.setPriceWithoutToppings(3.50);
 		
 	}
 	

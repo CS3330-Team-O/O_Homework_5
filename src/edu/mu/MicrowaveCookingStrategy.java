@@ -8,11 +8,11 @@ public class MicrowaveCookingStrategy implements ICookingStrategy{
 	public boolean cook(AbstractPizza pizza) {
 		if(pizza.getCookingStrategy() != null){
 			return false;
+			
 		}
 		else {
-			pizza.setCookingStrategy(new MicrowaveCookingStrategy());
-			double price = pizza.getTotalPrice();
-			pizza.setTotalPrice(price+additionalPrice);
+			pizza.setCookingStrategy(CookingStyleType.MICROWAVE);
+			pizza.setCookingPrice(additionalPrice);
 			return true;
 		}
 

@@ -9,9 +9,8 @@ public class ConventionalOvenCookingStrategy implements ICookingStrategy{
 			return false;
 		}
 		else {
-			pizza.setCookingStrategy(new ConventionalOvenCookingStrategy());
-			double price = pizza.getTotalPrice();
-			pizza.setTotalPrice(price+additionalPrice);
+			pizza.setCookingStrategy(CookingStyleType.CONVENTIONAL_OVEN);
+			pizza.setCookingPrice(additionalPrice);
 			return true;
 		}
 
