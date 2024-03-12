@@ -18,10 +18,16 @@ public class Main {
 		order.selectCookingStrategyByPizzaOrderID(3, CookingStyleType.MICROWAVE);
 		order.selectCookingStrategyByPizzaOrderID(4, CookingStyleType.BRICK_OVEN);
 		order.printPizzaOrderCart(4);
+		try {
+			order.checkout();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 		// Adds pizzas to the cart, selects cooking strategies for the pizzas in the cart,
 		//prints pizza order cart. Calls checkout to calculate the bill, throws exception if
 		//triggered.
-		// TODO
+		
+
 	}
 
 }
