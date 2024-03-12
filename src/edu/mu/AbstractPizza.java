@@ -88,6 +88,8 @@ public abstract class AbstractPizza {
 				return CookingStyleType.MICROWAVE;
 			case "BRICK_OVEN":
 				return CookingStyleType.BRICK_OVEN;
+			case "CONVENTIONAL_OVEN":
+				return CookingStyleType.CONVENTIONAL_OVEN;
 			default:
 				return CookingStyleType.CONVENTIONAL_OVEN;
 		}
