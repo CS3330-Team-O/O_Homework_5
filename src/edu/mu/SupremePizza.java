@@ -32,7 +32,7 @@ public class SupremePizza extends AbstractPizza {
 
 	@Override
 	protected double addToppingsToPrice(double priceWithoutToppings) {
-		double _totalPrice = 0.0;
+		double _totalPrice = priceWithoutToppings;
 		for (Toppings topping : super.getToppingList()) {
 			_totalPrice += topping.getPrice();
 		}
