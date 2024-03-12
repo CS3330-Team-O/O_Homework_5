@@ -18,10 +18,20 @@ public class Main {
 		order.selectCookingStrategyByPizzaOrderID(3, CookingStyleType.MICROWAVE);
 		order.selectCookingStrategyByPizzaOrderID(4, CookingStyleType.BRICK_OVEN);
 		order.printPizzaOrderCart(4);
+		//Checkout with all cooked pizzas
 		try {
-			order.checkout();
+			double total = order.checkout();
+			System.out.println("Your total is $" + total);
 		} catch (Exception e) {
-			e.printStackTrace();
+			System.out.println("You have uncooked pizzas! Cannot checkout");
+		}
+		//Checkout with an uncooked pizza
+		order.addPizzaToCart(PizzaType.VEGETARIAN);
+		try {
+			double total = order.checkout();
+			System.out.println("Your total is $" + total);
+		} catch (Exception e) {
+			System.out.println("You have uncooked pizzas! Cannot checkout");
 		}
 		// Adds pizzas to the cart, selects cooking strategies for the pizzas in the cart,
 		//prints pizza order cart. Calls checkout to calculate the bill, throws exception if
