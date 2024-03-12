@@ -7,7 +7,6 @@ public class MicrowaveCookingStrategy implements ICookingStrategy{
 	public boolean cook(AbstractPizza pizza) {
 		if(pizza.getCookingStrategy() != null){
 			return false;
-			
 		}
 		else {
 			pizza.setCookingStrategy(CookingStyleType.MICROWAVE);

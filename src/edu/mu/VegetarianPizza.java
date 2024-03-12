@@ -11,7 +11,7 @@ public class VegetarianPizza extends AbstractPizza{
 		toppingList.add(Toppings.BLACK_OLIVE);
 		toppingList.add(Toppings.MUSHROOM);
 		super.setToppingList(toppingList);
-		super.priceWithoutToppings = 1.50;
+		super.setPriceWithoutToppings(1.50);
 		super.setTotalPrice(1.50);
 		this.updatePizzaPrice();
 	}
