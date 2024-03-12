@@ -4,9 +4,6 @@ import java.util.ArrayList;
 
 public class HawaiianPizza extends AbstractPizza{
 	
-	
-	
-	
 	HawaiianPizza(){
 		super.toppingList = new ArrayList<Toppings>();
 		super.toppingList.add(Toppings.CANADIAN_BACON);
