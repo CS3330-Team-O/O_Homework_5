@@ -2,6 +2,7 @@ package edu.mu;
 
 import java.util.ArrayList;
 
+
 public class MargheritaPizza extends AbstractPizza{
 	//default constructor that adds the default toppings to pizza and the default price of the pizza
 	MargheritaPizza(){
@@ -17,8 +18,23 @@ public class MargheritaPizza extends AbstractPizza{
 		this.toppingList = pizza1.toppingList;
 		this.priceWithoutToppings = pizza1.priceWithoutToppings;
 		
+
+public class MargheritaPizza extends AbstractPizza {
+	MargheritaPizza() {
+		ArrayList<Toppings> toppingList = new ArrayList<Toppings>();
+		toppingList.add(Toppings.TOMATO);
+		toppingList.add(Toppings.CHEESE);
+		super.setToppingList(toppingList);
+		super.setPriceWithoutToppings(2.50);
+		this.updatePizzaPrice();
 	}
-	
+
+	public void copyPizza(MargheritaPizza pizza) {
+		this.setToppingList(pizza.getToppingList());
+		this.setPriceWithoutToppings(pizza.getPriceWithoutToppings());
+
+	}
+
 	@Override
 	//toString constructor that prints out the margherita pizza information
 	public String toString() {
@@ -26,23 +42,22 @@ public class MargheritaPizza extends AbstractPizza{
 				+ ", totalPrice=" + totalPrice + ", pizzaOrderID=" + pizzaOrderID + ", cookingStrategy="
 				+ cookingStrategy + ", cookingPrice=" + cookingPrice + "]";
 	}
-	
+
 	@Override
 	//adds the toppings to the total price of the pizza
 	protected double addToppingsToPrice(double priceWithoutToppings) {
-		this.priceWithoutToppings = priceWithoutToppings;
-		this.totalPrice = priceWithoutToppings;
-		for(Toppings topping: toppingList) {
-			this.totalPrice += topping.getPrice();
+		double _totalPrice = priceWithoutToppings;
+		for (Toppings topping : super.getToppingList()) {
+			_totalPrice += topping.getPrice();
 		}
-		return this.totalPrice;
+		return _totalPrice;
 	}
 
 	@Override
 	//updates the pizza price
 	public double updatePizzaPrice() {
-		this.totalPrice = this.addToppingsToPrice(priceWithoutToppings);
-		return 0;
+		super.setTotalPrice(super.getTotalPrice() + addToppingsToPrice(super.getPriceWithoutToppings()));
+		return super.getTotalPrice();
 	}
-	
+
 }

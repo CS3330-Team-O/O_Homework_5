@@ -13,11 +13,47 @@ public class PizzaOrder {
 		this.pizzaFactory = new PizzaCookingFactory();
 		this.pizzaOrderList = new ArrayList<AbstractPizza>();
 	}
+	
+	public ArrayList<AbstractPizza> getPizzaOrderList() {
+		return pizzaOrderList;
+	}
+
+	public void setPizzaOrderList(ArrayList<AbstractPizza> pizzaOrderList) {
+		try {
+			this.pizzaOrderList = pizzaOrderList;
+		} catch (Exception e) {
+			System.out.println("Error in setPizzaOrderList: " + e);
+		}
+	}
+
+	public PizzaCookingFactory getPizzaFactory() {
+		return pizzaFactory;
+	}
+
+	public void setPizzaFactory(PizzaCookingFactory pizzaFactory) {
+		try {
+			this.pizzaFactory = pizzaFactory;
+		} catch (Exception e) {
+			System.out.println("Error in setPizzaFactory: " + e);
+		}
+	}
+
+	public ICookingStrategy getCookingStrategy() {
+		return cookingStrategy;
+	}
+
+	public void setCookingStrategy(ICookingStrategy cookingStrategy) {
+		try {
+			this.cookingStrategy = cookingStrategy;
+		} catch (Exception e) {
+			System.out.println("Error in setCookingStrategy: " + e);
+		}
+	}
 
 	//this method traverses through the pizzaOrderList to find the pizza with the right order id
 	//then it will print out the all of the toppings of the specific pizza 
 	public void printListOfToppingsByPizzaOrderId(int orderId) {
-		for (AbstractPizza pizza : pizzaOrderList) {
+		for (AbstractPizza pizza : this.getPizzaOrderList()) {
 			if (pizza.getPizzaOrderID() == orderId) {
 				for (Toppings topping : pizza.getToppingList()) {
 					System.out.println(topping);
@@ -27,16 +63,19 @@ public class PizzaOrder {
 		}
 	}
 
+
 	//This method traverse through the pizzaOrderList and prints out each pizza information
 	public void printPizzaOrderCart(int orderId) {
 		for (AbstractPizza pizza : pizzaOrderList) {
+	public void printPizzaOrderCart(int orderID) {
+		for (AbstractPizza pizza : this.getPizzaOrderList()) {
 			System.out.println(pizza.toString());
 		}
 	}
 
 	//this method traverses through the pizzaOrderList and finds the pizza with he given orderid
 	public AbstractPizza getPizzaByOrderID(int orderID) {
-		for (AbstractPizza pizza : pizzaOrderList) {
+		for (AbstractPizza pizza : this.getPizzaOrderList()) {
 			if (pizza.getPizzaOrderID() == orderID) {
 				return pizza;
 			}
@@ -47,15 +86,15 @@ public class PizzaOrder {
 	//this method creates a new pizza using the pizzaFactory
 	//then adds the pizza to the pizzaOrderList
 	public boolean addPizzaToCart(PizzaType pizzaType) {
-		AbstractPizza pizza = pizzaFactory.createPizza(pizzaType);
-		pizzaOrderList.add(pizza);
+		AbstractPizza pizza = this.getPizzaFactory().createPizza(pizzaType);
+		this.getPizzaOrderList().add(pizza);
 		return true;
 	}
 
 	//Method goes through the pizzaOrderList to find the pizza by order id
 	//then the method adds the topping to the pizza with the order id passed in as a parameter
 	public boolean addNewToppingToPizza(int orderID, Toppings topping) {
-		for (AbstractPizza pizza : pizzaOrderList) {
+		for (AbstractPizza pizza : this.getPizzaOrderList()) {
 			if (pizza.getPizzaOrderID() == orderID) {
 				ArrayList<Toppings> toppings = pizza.getToppingList();
 				toppings.add(topping);
@@ -70,7 +109,7 @@ public class PizzaOrder {
 	//Method goes through the pizzaOrderList to find the pizza by order id
 	//then the method removes the topping from the pizza with the order id passed in as a parameter
 	public boolean removeToppingFromPizza(int orderID, Toppings topping) {
-		for (AbstractPizza pizza : pizzaOrderList) {
+		for (AbstractPizza pizza : this.getPizzaOrderList()) {
 			if (pizza.getPizzaOrderID() == orderID) {
 				ArrayList<Toppings> toppings = pizza.getToppingList();
 				toppings.remove(topping);
@@ -84,7 +123,7 @@ public class PizzaOrder {
 	//Method checks the pizzaOrderList for any uncooked pizza's
 	//if there are any uncooked pizza's then true is returned and otherwise false is returned
 	public boolean isThereAnyUncookedPizza() {
-		for (AbstractPizza pizza : pizzaOrderList) {
+		for (AbstractPizza pizza : this.getPizzaOrderList()) {
 			if (pizza.getCookingStrategy() == null) {
 				return true;
 			}
@@ -97,8 +136,8 @@ public class PizzaOrder {
 	public double checkout() throws Exception {
 		int total = 0;
         if(isThereAnyUncookedPizza() == false) {
-        	for (AbstractPizza pizza : pizzaOrderList) {
-            	total += pizza.totalPrice;
+        	for (AbstractPizza pizza : this.getPizzaOrderList()) {
+            	total += pizza.getTotalPrice();
             	}
         pizzaOrderList.clear();
         return total;
@@ -112,7 +151,7 @@ public class PizzaOrder {
 	//once the correct pizza is found, the method will setCookingStrategy and use the cookingStrategyType to invoke the correct cook() method
 	//Once the cooking is done, true is returned. else if the pizza order ID is not found then false is returned.s
 	public boolean selectCookingStrategyByPizzaOrderID(int OrderID, CookingStyleType cookingStrategyType) {
-		for (AbstractPizza pizza : pizzaOrderList) {
+		for (AbstractPizza pizza : this.getPizzaOrderList()) {
 			if (pizza.getPizzaOrderID() == OrderID) {
 				switch(cookingStrategyType) {
 				  case MICROWAVE:
