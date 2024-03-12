@@ -3,10 +3,7 @@ package edu.mu;
 import java.util.ArrayList;
 
 public class HawaiianPizza extends AbstractPizza{
-	
-	
-	
-	
+  
 	HawaiianPizza(){
 		ArrayList<Toppings> toppingList = new ArrayList<Toppings>();
 		toppingList.add(Toppings.CANADIAN_BACON);
@@ -16,14 +13,11 @@ public class HawaiianPizza extends AbstractPizza{
 		super.setPriceWithoutToppings(3.00);
 	}
 	
-	
-	
 	public void copyPizza(HawaiianPizza pizza1) {
 		this.toppingList = pizza1.toppingList;
 		this.priceWithoutToppings = pizza1.priceWithoutToppings;
 		
 	}
-	
 	
 	@Override
 	public String toString() {
