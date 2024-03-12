@@ -19,6 +19,9 @@ public class Main {
 		order.selectCookingStrategyByPizzaOrderID(3, CookingStyleType.MICROWAVE);
 		order.selectCookingStrategyByPizzaOrderID(4, CookingStyleType.BRICK_OVEN);
 		System.out.println("Pizzas in cart:");
+		
+		order.removeToppingFromPizza(1, Toppings.CANADIAN_BACON);
+		order.addNewToppingToPizza(2, Toppings.CANADIAN_BACON);
 		order.printPizzaOrderCart(4);
 		//Checkout with all cooked pizzas
 		try {

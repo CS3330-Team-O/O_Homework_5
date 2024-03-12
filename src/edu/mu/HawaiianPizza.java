@@ -37,7 +37,7 @@ public class HawaiianPizza extends AbstractPizza {
 
 	@Override
 	public double updatePizzaPrice() {
-		super.setTotalPrice(super.getTotalPrice() + addToppingsToPrice(super.getPriceWithoutToppings()));
+		super.setTotalPrice(super.getCookingPrice() + addToppingsToPrice(super.getPriceWithoutToppings()));
 		return super.getTotalPrice();
 	}
 
