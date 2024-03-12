@@ -10,7 +10,7 @@ public abstract class AbstractPizza {
 	protected static int orderIDCounter;
 	protected CookingStyleType cookingStrategy = null;
 	protected double cookingPrice;
-	
+
 	public ArrayList<Toppings> getToppingList() {
 		return new ArrayList<Toppings> (toppingList);
 	}
@@ -81,7 +81,8 @@ public abstract class AbstractPizza {
 			System.out.println("Error in setCookingPrice: " + e);
 		}
 	}
-	
+
+	//Convert a string of the cooking style to the enum
 	public static CookingStyleType convertStringToCookingStyleType(String cookingStyle) {
 		switch(cookingStyle) {
 			case "MICROWAVE":
@@ -94,7 +95,8 @@ public abstract class AbstractPizza {
 				return CookingStyleType.CONVENTIONAL_OVEN;
 		}
 	}
-	
+
+	//update the total price of the pizza from the price of each topping and the price without toppings
 	protected abstract double addToppingsToPrice(double priceWithoutToppings);
 	public abstract double updatePizzaPrice();
 	
