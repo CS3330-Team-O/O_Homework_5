@@ -3,7 +3,7 @@ package edu.mu;
 import java.util.ArrayList;
 
 public abstract class AbstractPizza {
-	protected ArrayList<Toppings> toppingList;
+	protected ArrayList<Toppings> toppingList = new ArrayList<Toppings>();
 	protected double priceWithoutToppings;
 	protected double totalPrice;
 	protected int pizzaOrderID;
@@ -77,7 +77,7 @@ public abstract class AbstractPizza {
 	public void setCookingPrice(double cookingPrice) {
 		try {
 			this.cookingPrice = cookingPrice;
-		}catch (Exception e) {
+		} catch (Exception e) {
 			System.out.println("Error in setCookingPrice: " + e);
 		}
 	}

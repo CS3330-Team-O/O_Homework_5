@@ -4,13 +4,16 @@ import java.util.ArrayList;
 
 public class VegetarianPizza extends AbstractPizza{
 	VegetarianPizza(){
-		super.toppingList = new ArrayList<Toppings>();
-		super.toppingList.add(Toppings.TOMATO);
-		super.toppingList.add(Toppings.CHEESE);
-		super.toppingList.add(Toppings.BELL_PEPPER);
-		super.toppingList.add(Toppings.BLACK_OLIVE);
-		super.toppingList.add(Toppings.MUSHROOM);
+		ArrayList<Toppings> toppingList = new ArrayList<Toppings>();
+		toppingList.add(Toppings.TOMATO);
+		toppingList.add(Toppings.CHEESE);
+		toppingList.add(Toppings.BELL_PEPPER);
+		toppingList.add(Toppings.BLACK_OLIVE);
+		toppingList.add(Toppings.MUSHROOM);
+		super.setToppingList(toppingList);
 		super.priceWithoutToppings = 1.50;
+		super.setTotalPrice(1.50);
+		this.updatePizzaPrice();
 	}
 	
 	public void copyPizza(VegetarianPizza pizza1) {
@@ -29,18 +32,17 @@ public class VegetarianPizza extends AbstractPizza{
 
 	@Override
 	protected double addToppingsToPrice(double priceWithoutToppings) {
-		this.priceWithoutToppings = priceWithoutToppings;
-		this.totalPrice = priceWithoutToppings;
+		double _totalPrice = 0.0;
 		for(Toppings topping: toppingList) {
-			this.totalPrice += topping.getPrice();
+			_totalPrice += topping.getPrice();
 		}
-		return this.totalPrice;
+		return _totalPrice;
 	}
 
 	@Override
 	public double updatePizzaPrice() {
-		this.totalPrice = this.addToppingsToPrice(priceWithoutToppings);
-		return 0;
+		super.setTotalPrice(super.getTotalPrice() + addToppingsToPrice(priceWithoutToppings));
+		return this.totalPrice;
 	}
 	
 
