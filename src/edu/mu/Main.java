@@ -46,7 +46,6 @@ public class Main {
 		order.addNewToppingToPizza(6, Toppings.BLACK_OLIVE);
 		order.printPizzaOrderCart(6);
 		
-		
 		// Adds pizzas to the cart, selects cooking strategies for the pizzas in the cart,
 		//prints pizza order cart. Calls checkout to calculate the bill, throws exception if
 		//triggered.
