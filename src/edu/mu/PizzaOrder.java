@@ -87,8 +87,8 @@ public class PizzaOrder {
 				ArrayList<Toppings> toppings = pizza.getToppingList();
 				toppings.add(topping);
 				pizza.setToppingList(toppings);
+				break;
 			}
-			break;
 		}
 		return true;
 	}

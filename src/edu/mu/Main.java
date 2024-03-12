@@ -29,7 +29,6 @@ public class Main {
 		}
 		
 		System.out.println("----------Order #2----------");
-		
 		//Checkout with an uncooked pizza
 		order.addPizzaToCart(PizzaType.VEGETARIAN);
 		order.addPizzaToCart(PizzaType.MARGHERITA);
@@ -46,6 +45,8 @@ public class Main {
 		order.removeToppingFromPizza(5, Toppings.TOMATO);
 		order.addNewToppingToPizza(6, Toppings.BLACK_OLIVE);
 		order.printPizzaOrderCart(6);
+		
+		
 		// Adds pizzas to the cart, selects cooking strategies for the pizzas in the cart,
 		//prints pizza order cart. Calls checkout to calculate the bill, throws exception if
 		//triggered.
