@@ -95,7 +95,8 @@ public abstract class AbstractPizza {
 				return CookingStyleType.CONVENTIONAL_OVEN;
 		}
 	}
-	
+
+	//update the total price of the pizza from the price of each topping and the price without toppings
 	protected abstract double addToppingsToPrice(double priceWithoutToppings);
 	public abstract double updatePizzaPrice();
 	
