@@ -17,9 +17,11 @@ public class Main {
 		order.selectCookingStrategyByPizzaOrderID(2, CookingStyleType.CONVENTIONAL_OVEN);
 		order.selectCookingStrategyByPizzaOrderID(3, CookingStyleType.MICROWAVE);
 		order.selectCookingStrategyByPizzaOrderID(4, CookingStyleType.BRICK_OVEN);
+		
 		order.printPizzaOrderCart(4);
+		
 		try {
-			order.checkout();
+			System.out.println(order.checkout());
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

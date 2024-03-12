@@ -2,42 +2,41 @@ package edu.mu;
 
 import java.util.ArrayList;
 
-public class MargheritaPizza extends AbstractPizza{
-	MargheritaPizza(){
-		super.toppingList = new ArrayList<Toppings>();
-		super.toppingList.add(Toppings.TOMATO);
-		super.toppingList.add(Toppings.CHEESE);
-		super.priceWithoutToppings = 2.50;
-		
+public class MargheritaPizza extends AbstractPizza {
+	MargheritaPizza() {
+		ArrayList<Toppings> toppingList = new ArrayList<Toppings>();
+		toppingList.add(Toppings.TOMATO);
+		toppingList.add(Toppings.CHEESE);
+		super.setToppingList(toppingList);
+		super.setPriceWithoutToppings(2.50);
+		this.updatePizzaPrice();
 	}
-	
-	public void copyPizza(MargheritaPizza pizza1) {
-		this.toppingList = pizza1.toppingList;
-		this.priceWithoutToppings = pizza1.priceWithoutToppings;
-		
+
+	public void copyPizza(MargheritaPizza pizza) {
+		this.setToppingList(pizza.getToppingList());
+		this.setPriceWithoutToppings(pizza.getPriceWithoutToppings());
 	}
-	
+
 	@Override
 	public String toString() {
 		return "MargheritaPizza [toppingList=" + toppingList + ", priceWithoutToppings=" + priceWithoutToppings
 				+ ", totalPrice=" + totalPrice + ", pizzaOrderID=" + pizzaOrderID + ", cookingStrategy="
 				+ cookingStrategy + ", cookingPrice=" + cookingPrice + "]";
 	}
-	
+
 	@Override
 	protected double addToppingsToPrice(double priceWithoutToppings) {
-		this.priceWithoutToppings = priceWithoutToppings;
-		this.totalPrice = priceWithoutToppings;
-		for(Toppings topping: toppingList) {
-			this.totalPrice += topping.getPrice();
+		double _totalPrice = 0.0;
+		for (Toppings topping : super.getToppingList()) {
+			_totalPrice += topping.getPrice();
 		}
-		return this.totalPrice;
+		return _totalPrice;
 	}
 
 	@Override
 	public double updatePizzaPrice() {
-		this.totalPrice = this.addToppingsToPrice(priceWithoutToppings);
-		return 0;
+		super.setTotalPrice(super.getTotalPrice() + addToppingsToPrice(super.getPriceWithoutToppings()));
+		return super.getTotalPrice();
 	}
-	
+
 }

@@ -101,7 +101,6 @@ public class PizzaOrder {
 	public boolean selectCookingStrategyByPizzaOrderID(int OrderID, CookingStyleType cookingStrategyType) {
 		for (AbstractPizza pizza : pizzaOrderList) {
 			if (pizza.getPizzaOrderID() == OrderID) {
-				pizza.setCookingStrategy(cookingStrategyType);
 				switch(cookingStrategyType) {
 				  case MICROWAVE:
 				    MicrowaveCookingStrategy microwave = new MicrowaveCookingStrategy();
