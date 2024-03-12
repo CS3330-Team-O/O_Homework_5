@@ -27,6 +27,7 @@ public abstract class AbstractPizza {
 	public void setPriceWithoutToppings(double priceWithoutToppings) {
 		try {
 			this.priceWithoutToppings = priceWithoutToppings;
+			this.totalPrice += priceWithoutToppings;
 		} catch (Exception e) {
 			System.out.println("Error in setPriceWithoutToppings: " + e);
 		}
@@ -77,7 +78,8 @@ public abstract class AbstractPizza {
 	public void setCookingPrice(double cookingPrice) {
 		try {
 			this.cookingPrice = cookingPrice;
-		}catch (Exception e) {
+			this.totalPrice += cookingPrice;
+		} catch (Exception e) {
 			System.out.println("Error in setCookingPrice: " + e);
 		}
 	}

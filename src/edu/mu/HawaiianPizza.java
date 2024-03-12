@@ -8,11 +8,12 @@ public class HawaiianPizza extends AbstractPizza{
 	
 	
 	HawaiianPizza(){
-		super.toppingList = new ArrayList<Toppings>();
-		super.toppingList.add(Toppings.CANADIAN_BACON);
-		super.toppingList.add(Toppings.CHEESE);
-		super.toppingList.add(Toppings.PINEAPPLE);
-		super.priceWithoutToppings = 3.00;
+		ArrayList<Toppings> toppingList = new ArrayList<Toppings>();
+		toppingList.add(Toppings.CANADIAN_BACON);
+		toppingList.add(Toppings.CHEESE);
+		toppingList.add(Toppings.PINEAPPLE);
+		super.setToppingList(toppingList);
+		super.setPriceWithoutToppings(3.00);
 	}
 	
 	
