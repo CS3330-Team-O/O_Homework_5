@@ -55,8 +55,8 @@ public class PizzaOrder {
 				for (Toppings topping : pizza.getToppingList()) {
 					System.out.println(topping);
 				}
+				break;
 			}
-			break;
 		}
 	}
 
