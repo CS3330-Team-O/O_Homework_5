@@ -26,6 +26,8 @@ public class HawaiianPizza extends AbstractPizza {
 				+ cookingStrategy + ", cookingPrice=" + cookingPrice + "]";
 	}
 
+	// Combines the base price (priceWithoutToppings) and the cost of all the
+	// toppings and returns that total.
 	@Override
 	protected double addToppingsToPrice(double priceWithoutToppings) {
 		double _totalPrice = priceWithoutToppings;
@@ -35,6 +37,8 @@ public class HawaiianPizza extends AbstractPizza {
 		return _totalPrice;
 	}
 
+	// Comines the cooking price and the combined base price and cost of all the
+	// toppings.
 	@Override
 	public double updatePizzaPrice() {
 		super.setTotalPrice(super.getCookingPrice() + addToppingsToPrice(super.getPriceWithoutToppings()));

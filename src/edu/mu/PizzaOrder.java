@@ -98,7 +98,11 @@ public class PizzaOrder {
 		for (AbstractPizza pizza : this.getPizzaOrderList()) {
 			if (pizza.getPizzaOrderID() == orderID) {
 				ArrayList<Toppings> toppings = pizza.getToppingList();
-				toppings.remove(topping);
+				try {
+					toppings.remove(topping);
+				} catch (Exception e) {
+					System.out.println("Topping is already not on pizza.");
+				}
 				pizza.setToppingList(toppings);
 				pizza.updatePizzaPrice();
 				break;
