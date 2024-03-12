@@ -116,6 +116,7 @@ MUSHROOM(1.50)
 CANADIAN_BACON(4.00)
 <br/>
 
-
+<h3>Description</h3>
+This program allows for the creation of customized pizza orders. It uses the factory design pattern to create different kinds of pizzas. It also uses the strategy design pattern to cook the pizzas in different methods. The process is controlled by the pizza order class which centralizes the process of ordering and customizing pizzas before checking out. 
 
 

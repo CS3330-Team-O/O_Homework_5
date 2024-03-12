@@ -124,6 +124,7 @@ public class PizzaOrder {
         	for (AbstractPizza pizza : this.getPizzaOrderList()) {
             	total += pizza.getTotalPrice();
             	}
+        pizzaOrderList.clear();
         return total;
         }
         else {
