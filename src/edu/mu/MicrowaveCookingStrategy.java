@@ -1,7 +1,6 @@
 package edu.mu;
 
 public class MicrowaveCookingStrategy implements ICookingStrategy{
-
 	private final double additionalPrice = 1.0;
 
 	@Override
@@ -13,6 +12,7 @@ public class MicrowaveCookingStrategy implements ICookingStrategy{
 		else {
 			pizza.setCookingStrategy(CookingStyleType.MICROWAVE);
 			pizza.setCookingPrice(additionalPrice);
+			pizza.totalPrice += additionalPrice;
 			return true;
 		}
 

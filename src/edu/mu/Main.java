@@ -22,9 +22,6 @@ public class Main {
 		} catch (Exception e) {
 			System.out.println(e);
 		}
-		
-		
-		
 	
 		// Adds pizzas to the cart, selects cooking strategies for the pizzas in the cart,
 		//prints pizza order cart. Calls checkout to calculate the bill, throws exception if

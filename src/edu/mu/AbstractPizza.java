@@ -27,7 +27,6 @@ public abstract class AbstractPizza {
 	public void setPriceWithoutToppings(double priceWithoutToppings) {
 		try {
 			this.priceWithoutToppings = priceWithoutToppings;
-			this.totalPrice += priceWithoutToppings;
 		} catch (Exception e) {
 			System.out.println("Error in setPriceWithoutToppings: " + e);
 		}
@@ -65,7 +64,7 @@ public abstract class AbstractPizza {
 	public CookingStyleType getCookingStrategy() {
 		return cookingStrategy;
 	}
-	public void setCookingStrategy(ICookingStrategy cookingStrategy) {
+	public void setCookingStrategy(CookingStyleType cookingStrategy) {
 		try {
 			this.cookingStrategy = cookingStrategy;
 		}catch(Exception e) {
@@ -78,7 +77,6 @@ public abstract class AbstractPizza {
 	public void setCookingPrice(double cookingPrice) {
 		try {
 			this.cookingPrice = cookingPrice;
-			this.totalPrice += cookingPrice;
 		} catch (Exception e) {
 			System.out.println("Error in setCookingPrice: " + e);
 		}

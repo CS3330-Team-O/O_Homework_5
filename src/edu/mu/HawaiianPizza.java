@@ -11,6 +11,8 @@ public class HawaiianPizza extends AbstractPizza{
 		toppingList.add(Toppings.PINEAPPLE);
 		super.setToppingList(toppingList);
 		super.setPriceWithoutToppings(3.00);
+		super.setTotalPrice(3.00);
+		this.updatePizzaPrice();
 	}
 	
 	public void copyPizza(HawaiianPizza pizza1) {
@@ -28,18 +30,17 @@ public class HawaiianPizza extends AbstractPizza{
 
 	@Override
 	protected double addToppingsToPrice(double priceWithoutToppings) {
-		this.priceWithoutToppings = priceWithoutToppings;
-		this.totalPrice = priceWithoutToppings;
+		double _totalPrice = 0.0;
 		for(Toppings topping: toppingList) {
-			this.totalPrice += topping.getPrice();
+			_totalPrice += topping.getPrice();
 		}
-		return this.totalPrice;
+		return _totalPrice;
 	}
 
 	@Override
 	public double updatePizzaPrice() {
-		this.totalPrice = this.addToppingsToPrice(priceWithoutToppings);
-		return 0;
+		super.setTotalPrice(super.getTotalPrice() + addToppingsToPrice(priceWithoutToppings));
+		return this.totalPrice;
 	}
 
 }

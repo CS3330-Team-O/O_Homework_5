@@ -4,11 +4,13 @@ import java.util.ArrayList;
 
 public class MargheritaPizza extends AbstractPizza{
 	MargheritaPizza(){
-		super.toppingList = new ArrayList<Toppings>();
-		super.toppingList.add(Toppings.TOMATO);
-		super.toppingList.add(Toppings.CHEESE);
-		super.priceWithoutToppings = 2.50;
-		
+		ArrayList<Toppings> toppingList = new ArrayList<Toppings>();
+		toppingList.add(Toppings.TOMATO);
+		toppingList.add(Toppings.CHEESE);
+		super.setToppingList(toppingList);
+		super.setPriceWithoutToppings(2.50);
+		super.setTotalPrice(3.00);
+		this.updatePizzaPrice();
 	}
 	
 	public void copyPizza(MargheritaPizza pizza1) {
@@ -26,18 +28,17 @@ public class MargheritaPizza extends AbstractPizza{
 	
 	@Override
 	protected double addToppingsToPrice(double priceWithoutToppings) {
-		this.priceWithoutToppings = priceWithoutToppings;
-		this.totalPrice = priceWithoutToppings;
+		double _totalPrice = 0.0;
 		for(Toppings topping: toppingList) {
-			this.totalPrice += topping.getPrice();
+			_totalPrice += topping.getPrice();
 		}
-		return this.totalPrice;
+		return _totalPrice;
 	}
 
 	@Override
 	public double updatePizzaPrice() {
-		this.totalPrice = this.addToppingsToPrice(priceWithoutToppings);
-		return 0;
+		super.setTotalPrice(super.getTotalPrice() + addToppingsToPrice(priceWithoutToppings));
+		return this.totalPrice;
 	}
 	
 }
