@@ -88,6 +88,7 @@ public class PizzaOrder {
         	for (AbstractPizza pizza : pizzaOrderList) {
             	total += pizza.totalPrice;
             	}
+        pizzaOrderList.clear();
         return total;
         }
         else {
